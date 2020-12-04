@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
@@ -15,6 +15,12 @@ import JSLogo from './assets/JS-logo.png';
 import MUILogo from './assets/MUI-logo.png';
 import SCLogo from './assets/styled-components-logo.png';
 import WebpackLogo from './assets/webpack-logo.png';
+
+// TODO: Make other tabs/pages  with React Router or something
+// Make animations smoother. Options right now are react-transition-group or delay it with a timeout using useEffect hooks
+// Make it prettier. Never stop doing this
+// Make it responsive
+// Add my co-ops/experiences
 
 const Logos =  [
     {
@@ -43,15 +49,15 @@ const Logos =  [
     },
 ];
 
-const Home = () => {
+const Home = ({ atIntro }) => {
   return (
     <HomeContainer maxWidth="md">
-      <HomeContentDiv>
+      <HomeContentDiv out={atIntro} >
         <Heading>Welcome to the home page.</Heading>
         <SubHeading>
           This is where you'll learn a little bit about me and this site. Feel
           free to explore my projects and contact info which can be found in the
-          other tabs. I hope you enjoy the journey.
+          other tabs.
         </SubHeading>
       </HomeContentDiv>
       <PersonalContentDiv>
@@ -80,7 +86,7 @@ const Home = () => {
         <div>
           <Heading>About This Site</Heading>
           <ContentParagraph>
-            This site was made with React and Javascript. It was styled using
+            This site was primarily made with React and Javascript. It was styled using
             Styled-Components and Materials-UI. It was compiled using Webpack
             and Babel.
             <br/>
@@ -99,6 +105,27 @@ const Home = () => {
     </HomeContainer>
   );
 };
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
 
 const CustomAvatar = styled(Avatar)`
   && {
@@ -122,7 +149,7 @@ const ContentParagraph = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: normal;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   max-width: 30vw;
 `;
 
@@ -132,6 +159,9 @@ const HomeContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  visibility: ${props => props.out ? 'hidden' : 'visible'};
+  animation: ${props => props.out ? fadeOut : fadeIn} 2s linear;
 `;
 
 const PersonalContentDiv = styled.div`
@@ -165,7 +195,7 @@ const HomeContainer = styled(Container)`
 `;
 
 const CustomGrid = styled(GridList)`
-  height: 90vh;
+  height: 85vh;
   width: 30vw;
 `;
 

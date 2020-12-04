@@ -29,11 +29,10 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [atIntro, setAtIntro] = useState(true);
 
-  console.log(atIntro);
   return (
     <>
       <GlobalStyle />
-      {atIntro ? <Intro setAtIntro={setAtIntro} /> : <Home />}
+      {atIntro ? <Intro atIntro={atIntro} setAtIntro={setAtIntro} /> : <Home atIntro={atIntro} />}
     </>
   );
 };
