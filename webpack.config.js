@@ -25,12 +25,8 @@ module.exports = {
                 use: ['babel-loader', 'eslint-loader']
             },
             {
-                test: /\.(png|svg|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader'
-                    }
-                ]
+                test: /\.(png|svg|jpeg|jpg|gif)$/i,
+                type: 'asset/resource',
             },
             {
                 test: /\.css$/i,

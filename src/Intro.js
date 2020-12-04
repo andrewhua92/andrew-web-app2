@@ -1,31 +1,31 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import Galaxy from '../public/galaxy_thing.gif';
+import Galaxy from './assets/galaxy_thing.gif';
 
 import Button from '@material-ui/core/Button';
 
 import 'fontsource-ubuntu';
 
 const Background = ({ setAtIntro }) => {
-    return (
-        <IntroBackgroundDiv>
-            <ContentDiv>
-                <ContentParagraph>
+  return (
+    <IntroBackgroundDiv>
+      <ContentDiv>
+        <ContentParagraph>
           Welcome traveler! This is my website. Ready for a tour in this part of
           the galaxy?
-                </ContentParagraph>
-                <ContentButton
-                    size="large"
-                    variant="contained"
-                    onClick={() => setAtIntro(false)}
-                >
+        </ContentParagraph>
+        <ContentButton
+          size="large"
+          variant="contained"
+          onClick={() => setAtIntro(false)}
+        >
           Let's go!
-                </ContentButton>
-            </ContentDiv>
-            <GifDiv />
-        </IntroBackgroundDiv>
-    );
+        </ContentButton>
+      </ContentDiv>
+      <GifDiv />
+    </IntroBackgroundDiv>
+  );
 };
 
 const ContentButton = styled(Button)`
@@ -57,10 +57,10 @@ const GifDiv = styled.div`
 `;
 
 const IntroBackgroundDiv = styled.div`
-  width: inherit;
+  width: 100vw;
   height: 600px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 `;
 
 export default Background;
