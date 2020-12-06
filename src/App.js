@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [atIntro, setAtIntro] = useState(true);
+  const [atIntro, setAtIntro] = useState(window.location.pathname === '/');
   const { isSticky, element } = useSticky();
 
   return (
@@ -54,14 +54,14 @@ const App = () => {
           <>
           <Header sticky={isSticky} />
           <Switch>
-            <Route path="/">
-              <Home element={element} />
-            </Route>
             <Route path="/projects">
               <Projects element={element} />
             </Route>
             <Route path="/contact">
               <Contact element={element} />
+            </Route>
+            <Route path="/">
+              <Home element={element} />
             </Route>
           </Switch>
           </>

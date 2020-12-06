@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from '@material-ui/core/Container';
+import ContactContent from './ContactContent';
 
-const Contact = () => {
+const Contact = ({ atIntro, element }) => {
   console.log('YOOO');
   return (
     <HomeContainer maxWidth="md">
-      <div>BROOOOOOOOOOOOOOOOOOOOOO</div>
+      <ContactContent atIntro={atIntro} element={element} />
     </HomeContainer>
   );
 };

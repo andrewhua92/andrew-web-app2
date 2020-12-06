@@ -20,7 +20,7 @@ const PersonalContent = () => {
           as well.
           <br />
           <br />
-          I've very experienced with Java, C++, JavasScript with React, Python,
+          I'm very experienced with Java, C++, JavasScript with React, Python,
           Ruby on Rails and have working knowledge with Git, PHP, and C.
         </ContentParagraph>
       </div>

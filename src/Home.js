@@ -15,6 +15,7 @@ import SiteContent from './SiteContent';
 // Make it prettier. Never stop doing this
 // Make it responsive
 // Add my co-ops/experiences
+// add prop-types
 
 const Home = ({ atIntro, element }) => {
   return (
