@@ -7,13 +7,12 @@ import 'fontsource-ubuntu';
 import 'fontsource-noto-sans-tc';
 
 const Background = ({ atIntro, setAtIntro }) => {
-
   return (
-    <IntroBackgroundDiv className="target" >
+    <IntroBackgroundDiv className="target">
       <ContentDiv>
         <ContentParagraph>
-          Welcome traveler! This is my website. Ready for a tour in this
-          part of the galaxy?
+          Welcome traveler! This is my website. Ready for a tour in this part of
+          the galaxy?
         </ContentParagraph>
         <ContentButton
           size="large"

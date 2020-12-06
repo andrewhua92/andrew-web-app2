@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import Intro from './Intro';
 import Home from './Home';
+import Header from './Header';
+import Projects from './Projects';
+import Contact from './Contact';
 import { CSSTransition } from 'react-transition-group';
+import useSticky from './hooks/useSticky';
 
 import { createGlobalStyle } from 'styled-components';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -29,13 +35,14 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const [atIntro, setAtIntro] = useState(true);
+  const { isSticky, element } = useSticky();
 
   return (
-    <>
+    <Router>
       <GlobalStyle />
       <CSSTransition
         in={atIntro}
-        timeout={{appear: 500, enter: 500, exit: 1000}}
+        timeout={{ appear: 500, enter: 500, exit: 1000 }}
         classNames="target"
         mountOnEnter
         unmountOnExit
@@ -43,8 +50,23 @@ const App = () => {
       >
         {<Intro atIntro={atIntro} setAtIntro={setAtIntro} />}
       </CSSTransition>
-      {!atIntro && <Home/>}
-    </>
+      {!atIntro && (
+          <>
+          <Header sticky={isSticky} />
+          <Switch>
+            <Route path="/">
+              <Home element={element} />
+            </Route>
+            <Route path="/projects">
+              <Projects element={element} />
+            </Route>
+            <Route path="/contact">
+              <Contact element={element} />
+            </Route>
+          </Switch>
+          </>
+      )}
+    </Router>
   );
 };
 
