@@ -9,8 +9,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 
 import 'fontsource-noto-sans-tc';
 
-import BabelLogo  from  './assets/Babel-logo.png';
-import ReactLogo  from './assets/React-logo.png';
+import BabelLogo from './assets/Babel-logo.png';
+import ReactLogo from './assets/React-logo.png';
 import JSLogo from './assets/JS-logo.png';
 import MUILogo from './assets/MUI-logo.png';
 import SCLogo from './assets/styled-components-logo.png';
@@ -22,37 +22,37 @@ import WebpackLogo from './assets/webpack-logo.png';
 // Make it responsive
 // Add my co-ops/experiences
 
-const Logos =  [
-    {
-        title: 'JavaScript Logo',
-        img: JSLogo,
-    },
-    {
-        title: 'React Logo',
-        img: ReactLogo,
-    },
-    {
-        title: 'Matierials UI Logo',
-        img: MUILogo,
-    },
-    {
-        title: 'Styled-Components Logo',
-        img: SCLogo,
-    },
-    {
-        title: 'Webpack Logo',
-        img: WebpackLogo,
-    },
-    {
-        title: 'Babel Logo',
-        img: BabelLogo,
-    },
+const Logos = [
+  {
+    title: 'JavaScript Logo',
+    img: JSLogo,
+  },
+  {
+    title: 'React Logo',
+    img: ReactLogo,
+  },
+  {
+    title: 'Matierials UI Logo',
+    img: MUILogo,
+  },
+  {
+    title: 'Styled-Components Logo',
+    img: SCLogo,
+  },
+  {
+    title: 'Webpack Logo',
+    img: WebpackLogo,
+  },
+  {
+    title: 'Babel Logo',
+    img: BabelLogo,
+  },
 ];
 
 const Home = ({ atIntro }) => {
   return (
     <HomeContainer maxWidth="md">
-      <HomeContentDiv out={atIntro} >
+      <HomeContentDiv out={atIntro}>
         <Heading>Welcome to the home page.</Heading>
         <SubHeading>
           This is where you'll learn a little bit about me and this site. Feel
@@ -86,20 +86,20 @@ const Home = ({ atIntro }) => {
         <div>
           <Heading>About This Site</Heading>
           <ContentParagraph>
-            This site was primarily made with React and Javascript. It was styled using
-            Styled-Components and Materials-UI. It was compiled using Webpack
-            and Babel.
-            <br/>
-            <br/>
-            I had a lot fun making this and I hope to add more features in the future!
+            This site was primarily made with React and Javascript. It was
+            styled using Styled-Components and Materials-UI. It was compiled
+            using Webpack and Babel.
+            <br />
+            <br />I had a lot fun making this and I hope to add more features in
+            the future!
           </ContentParagraph>
         </div>
         <CustomGrid cellHeight={150} spacing={5} cols={2}>
-            {Logos.map((logo) => (
-                <CustomGridTile key={logo.img} cols={1}>
-                    <LogoImg src={logo.img} alt={logo.title} />
-                </CustomGridTile>
-            ))}
+          {Logos.map((logo) => (
+            <CustomGridTile key={logo.img} cols={1}>
+              <LogoImg src={logo.img} alt={logo.title} />
+            </CustomGridTile>
+          ))}
         </CustomGrid>
       </SiteContentDiv>
     </HomeContainer>
@@ -125,7 +125,6 @@ const fadeOut = keyframes`
     opacity: 0;
   }
 `;
-
 
 const CustomAvatar = styled(Avatar)`
   && {
@@ -160,8 +159,8 @@ const HomeContentDiv = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  visibility: ${props => props.out ? 'hidden' : 'visible'};
-  animation: ${props => props.out ? fadeOut : fadeIn} 2s linear;
+  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
 `;
 
 const PersonalContentDiv = styled.div`

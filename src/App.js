@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Intro from './Intro';
 import Home from './Home';
+import { CSSTransition } from 'react-transition-group';
 
 import { createGlobalStyle } from 'styled-components';
 
@@ -32,7 +33,17 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      {atIntro ? <Intro atIntro={atIntro} setAtIntro={setAtIntro} /> : <Home atIntro={atIntro} />}
+      <CSSTransition
+        in={atIntro}
+        timeout={{appear: 500, enter: 500, exit: 1000}}
+        classNames="target"
+        mountOnEnter
+        unmountOnExit
+        appear
+      >
+        {<Intro atIntro={atIntro} setAtIntro={setAtIntro} />}
+      </CSSTransition>
+      {!atIntro && <Home/>}
     </>
   );
 };
