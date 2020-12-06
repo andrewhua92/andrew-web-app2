@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -10,43 +10,32 @@ import 'fontsource-noto-sans-tc';
 import { Link } from 'react-router-dom';
 
 const Header = ({ sticky }) => {
+  // gotta do this extra shit with hooks to update the indicator of the tabs manually
+  const [value, setValue] = useState(window.location.pathname);
 
-    // gotta do this extra shit with hooks to update the indicator of the tabs manually
-    const [value, setValue] = useState(window.location.pathname);
+  const handleChange = (value) => {
+    setValue(value);
+  };
 
-    const handleChange = (value) => {
-        setValue(value)
-    }
-
-    useEffect(()=> {
-        let path = window.location.pathname;
-        if (path === '/') setValue(0)
-        else if (path === '/projects') setValue(1)
-        else if (path === '/contact') setValue (2)
-    }, [value]);
+  useEffect(() => {
+    let path = window.location.pathname;
+    if (path === '/') setValue(0);
+    else if (path === '/projects') setValue(1);
+    else if (path === '/contact') setValue(2);
+  }, [value]);
 
   return (
     <StickyNav className={sticky ? 'header-sticky' : 'header'}>
       <NavTabsDiv>
         <NavTabs
-            variant='fullWidth'
-            value={value}
-            onChange={handleChange}
-            indicatorColor='primary'
+          variant="fullWidth"
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
         >
           <LinkTab value={0} to="/" label="Home" component={Link} />
-          <LinkTab
-            value={1}
-            to="/projects"
-            label="Projects"
-            component={Link}
-          />
-          <LinkTab
-            value={2}
-            to="/contact"
-            label="Contact"
-            component={Link}
-          />
+          <LinkTab value={1} to="/projects" label="Projects" component={Link} />
+          <LinkTab value={2} to="/contact" label="Contact" component={Link} />
         </NavTabs>
       </NavTabsDiv>
     </StickyNav>
@@ -93,10 +82,10 @@ const NavTabsDiv = styled(AppBar)`
 `;
 
 const LinkTab = styled(Tab)`
-    && {  
-color: white;
-  font-family: 'Noto Sans TC', sans-serif;
-    }
+  && {
+    color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
 `;
 
 export default Header;

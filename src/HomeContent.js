@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import 'fontsource-noto-sans-tc';
 
 const HomeContent = ({ atIntro, element }) => {
   return (
-    <HomeContentDiv ref={element} out={atIntro}>
+    <HomeContentDiv ref={element}>
       <Heading>Welcome to the home page.</Heading>
       <SubHeading>
         This is where you'll learn a little bit about me and this site. Feel
@@ -15,26 +15,6 @@ const HomeContent = ({ atIntro, element }) => {
     </HomeContentDiv>
   );
 };
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-`;
 
 const Heading = styled.h1`
   color: white;
@@ -53,9 +33,6 @@ const HomeContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
 `;
 
 export default HomeContent;

@@ -7,9 +7,7 @@ const ContactContent = ({ atIntro, element }) => {
   return (
     <ContactContentDiv ref={element} out={atIntro}>
       <Heading>Welcome to the contact page.</Heading>
-      <SubHeading>
-        This is where you can contact me. 
-      </SubHeading>
+      <SubHeading>This is where you can contact me.</SubHeading>
     </ContactContentDiv>
   );
 };

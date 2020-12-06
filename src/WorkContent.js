@@ -92,6 +92,10 @@ const TextButton = styled(Button)`
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 2.2rem;
     text-transform: none;
+
+    &&:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   }
 `;
 

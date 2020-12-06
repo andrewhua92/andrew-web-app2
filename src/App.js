@@ -6,6 +6,7 @@ import Projects from './Projects';
 import Contact from './Contact';
 import { CSSTransition } from 'react-transition-group';
 import useSticky from './hooks/useSticky';
+import ScrollToTop from './hooks/ScrollToTop';
 
 import { createGlobalStyle } from 'styled-components';
 
@@ -51,20 +52,23 @@ const App = () => {
         {<Intro atIntro={atIntro} setAtIntro={setAtIntro} />}
       </CSSTransition>
       {!atIntro && (
-          <>
+        <>
           <Header sticky={isSticky} />
           <Switch>
             <Route path="/projects">
+              <ScrollToTop />
               <Projects element={element} />
             </Route>
             <Route path="/contact">
+              <ScrollToTop />
               <Contact element={element} />
             </Route>
             <Route path="/">
+              <ScrollToTop />
               <Home element={element} />
             </Route>
           </Switch>
-          </>
+        </>
       )}
     </Router>
   );
