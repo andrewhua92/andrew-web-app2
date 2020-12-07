@@ -1,13 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
     mode: 'development',
     entry: './src/index.js',
     output: {
-        // path: path.resolve(__dirname, 'dist/'),
-        publicPath: '/',
+        path: path.resolve(__dirname, 'dist/'),
+        publicPath: '/andrew-web-app2/',
         filename: 'bundle.js'
     },
     devServer: {
@@ -39,5 +41,10 @@ module.exports = {
             }
         ]
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()]
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin(), 
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+          })]
 };

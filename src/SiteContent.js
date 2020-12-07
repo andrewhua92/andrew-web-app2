@@ -79,7 +79,7 @@ const ContentParagraph = styled.p`
 `;
 
 const SiteContentDiv = styled.div`
-  height: 100vh;
+  height: 95vh;
   background-color: black;
   display: flex;
   flex-direction: row;

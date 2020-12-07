@@ -26,7 +26,7 @@ const ContactOverview = () => {
         <ContactList>
           <ListItem>
             <ListItemIcon>
-              <EmailIcon style={{color: 'white'}} />
+              <EmailIcon style={{ color: 'white' }} />
             </ListItemIcon>
             <ListItemText
               primary="Personal Email"
@@ -38,7 +38,7 @@ const ContactOverview = () => {
           <ContactDivider />
           <ListItem>
             <ListItemIcon>
-              <EmailIcon style={{color: 'white'}} />
+              <EmailIcon style={{ color: 'white' }} />
             </ListItemIcon>
             <ListItemText
               primary="School Email"
@@ -48,9 +48,14 @@ const ContactOverview = () => {
             />
           </ListItem>
           <ContactDivider />
-          <ListItem button component="a" href="https://github.com/andrewhua92" target="_blank">
+          <ListItem
+            button
+            component="a"
+            href="https://github.com/andrewhua92"
+            target="_blank"
+          >
             <ListItemIcon>
-              <GitHubIcon style={{color: 'white'}} />
+              <GitHubIcon style={{ color: 'white' }} />
             </ListItemIcon>
             <ListItemText
               primary="GitHub"
@@ -60,9 +65,14 @@ const ContactOverview = () => {
             />
           </ListItem>
           <ContactDivider />
-          <ListItem button component="a" href="https://www.linkedin.com/in/andrew-hua90" target="_blank">
+          <ListItem
+            button
+            component="a"
+            href="https://www.linkedin.com/in/andrew-hua90"
+            target="_blank"
+          >
             <ListItemIcon>
-              <LinkedInIcon style={{color: 'white'}} />
+              <LinkedInIcon style={{ color: 'white' }} />
             </ListItemIcon>
             <ListItemText
               primary="LinkedIn"
@@ -78,14 +88,14 @@ const ContactOverview = () => {
 };
 
 const ContactList = styled(List)`
-    width: 25vw;
+  width: 25vw;
 `;
 
 const ContactDivider = styled(Divider)`
-&& {
-    background-color:  rgba(50, 50, 50, 0.9);
+  && {
+    background-color: rgba(50, 50, 50, 0.9);
     height: 2px;
-}
+  }
 `;
 
 const FireplaceDiv = styled.div`
