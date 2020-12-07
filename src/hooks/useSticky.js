@@ -9,7 +9,7 @@ function useSticky() {
 
   const handleScroll = () => {
     // eslint-disable-next-line no-unused-expressions
-    window.scrollY > element.current.getBoundingClientRect().bottom
+    window.scrollY > element.current.getBoundingClientRect().top
       ? setSticky(true)
       : setSticky(false);
   };

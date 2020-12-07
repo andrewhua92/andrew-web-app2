@@ -3,11 +3,11 @@ import styled, { keyframes } from 'styled-components';
 
 import 'fontsource-noto-sans-tc';
 
-const ContactContent = ({ atIntro, element }) => {
+const ContactContent = ({ element }) => {
   return (
-    <ContactContentDiv ref={element} out={atIntro}>
+    <ContactContentDiv ref={element}>
       <Heading>Welcome to the contact page.</Heading>
-      <SubHeading>This is where you can contact me.</SubHeading>
+      <SubHeading>This is where you can find ways to contact me. </SubHeading>
     </ContactContentDiv>
   );
 };

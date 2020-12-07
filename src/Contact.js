@@ -1,19 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Container from '@material-ui/core/Container';
 import ContactContent from './ContactContent';
+import ContactOverview from './ContactOverview';
 
 const Contact = ({ atIntro, element }) => {
-  console.log('YOOO');
   return (
-    <HomeContainer maxWidth="md">
-      <ContactContent atIntro={atIntro} element={element} />
-    </HomeContainer>
+    <ContactContainer maxWidth="md" out={atIntro}>
+      <ContactContent element={element} />
+      <ContactOverview />
+    </ContactContainer>
   );
 };
 
-const HomeContainer = styled(Container)`
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
+const ContactContainer = styled(Container)`
+  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
   background-color: black;
 `;
 

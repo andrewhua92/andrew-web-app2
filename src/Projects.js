@@ -7,7 +7,7 @@ import ProjectsOverview from './ProjectsOverview';
 
 const Projects = ({ atIntro, element }) => {
   return (
-    <HomeContainer atIntro={atIntro} maxWidth="md">
+    <HomeContainer out={atIntro} maxWidth="md">
       <ProjectsContent element={element} />
       <ProjectsOverview />
     </HomeContainer>

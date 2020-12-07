@@ -10,16 +10,17 @@ import PersonalContent from './PersonalContent';
 import WorkContent from './WorkContent';
 import SiteContent from './SiteContent';
 
-// TODO: Make other tabs/pages  with React Router or something
+// TODO:
+// Organize file structure into their respective pages
+// Deal with eslint problems
 // Make animations smoother. Options right now are react-transition-group or delay it with a timeout using useEffect hooks
 // Make it prettier. Never stop doing this
-// Make it responsive
-// Add my co-ops/experiences
+// Make it responsive - BIG TASK ZZZZZZZZ
 // add prop-types
 
 const Home = ({ atIntro, element }) => {
   return (
-    <HomeContainer atIntro={atIntro} maxWidth="md">
+    <HomeContainer out={atIntro} maxWidth="md">
       <HomeContent element={element} atIntro={atIntro} />
       <PersonalContent />
       <WorkContent />

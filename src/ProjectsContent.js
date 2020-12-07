@@ -5,10 +5,11 @@ import 'fontsource-noto-sans-tc';
 
 const ProjectsContent = ({ atIntro, element }) => {
   return (
-    <ProjectContentDiv ref={element} atIntro={atIntro}  >
+    <ProjectContentDiv ref={element} atIntro={atIntro}>
       <Heading>Welcome to the projects page.</Heading>
       <SubHeading>
-        This is where you'll read about my projects and links to their respective Github repositories.
+        This is where you'll read about my projects and links to their
+        respective Github repositories.
       </SubHeading>
     </ProjectContentDiv>
   );
@@ -26,7 +27,7 @@ const SubHeading = styled.h1`
 `;
 
 const ProjectContentDiv = styled.div`
-  height: 110vh;
+  height: 100vh;
   background-color: black;
   display: flex;
   flex-direction: column;

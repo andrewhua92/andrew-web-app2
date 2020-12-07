@@ -65,7 +65,7 @@ const WorkContent = () => {
           <TextButton onClick={() => setCompany(2)}>XE.com</TextButton>
         </ContentParagraph>
       </ContentDiv>
-      <div>
+      <div style={{ maxWidth: '25vw' }}>
         {transitions.map(({ item, props, key }) => (
           <SlideDiv key={key} style={props}>
             <LogoImg src={item.img} />
@@ -102,6 +102,7 @@ const TextButton = styled(Button)`
 const Heading = styled.h1`
   color: white;
   font-family: 'Noto Sans TC', sans-serif;
+  max-width: 20vw;
 `;
 
 const ContentParagraph = styled.p`

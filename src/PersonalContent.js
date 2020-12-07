@@ -45,7 +45,7 @@ const ContentParagraph = styled.p`
   font-weight: normal;
   color: white;
   font-size: 1.3rem;
-  max-width: 40vw;
+  max-width: 35vw;
 `;
 
 const PersonalContentDiv = styled.div`

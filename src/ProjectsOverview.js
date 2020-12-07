@@ -143,13 +143,6 @@ const SubHeading = styled.h1`
   align-self: center;
 `;
 
-const ContentParagraph = styled.p`
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: normal;
-  color: white;
-  font-size: 1.4rem;
-`;
-
 const ProjectsContentDiv = styled.div`
   height: 110vh;
   background: black;
