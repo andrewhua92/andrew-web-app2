@@ -11,7 +11,7 @@ import 'fontsource-noto-sans-tc';
 
 import { Link } from 'react-router-dom';
 
-const Header = ({ sticky }) => {
+const Header = ({ sticky, atIntro }) => {
   // gotta do this extra shit with hooks to update the indicator of the tabs manually
   const [value, setValue] = useState(window.location.pathname);
 
@@ -20,14 +20,15 @@ const Header = ({ sticky }) => {
   };
 
   useEffect(() => {
-    let path = window.location.pathname;
-    if (path === '/') setValue(0);
-    else if (path === '/projects') setValue(1);
-    else if (path === '/contact') setValue(2);
+    let path = window.location.hash;
+    console.log(path);
+    if (path === '#/') setValue(0);
+    else if (path === '#/projects') setValue(1);
+    else if (path === '#/contact') setValue(2);
   }, [value]);
 
   return (
-    <StickyNav className={sticky ? 'header-sticky' : 'header'}>
+    <StickyNav out={atIntro} className={sticky ? 'header-sticky' : 'header'}>
       <Link to="/">
         <LogoImg src={AHIcon} onClick={() => handleChange(0)} />
       </Link>
@@ -53,6 +54,26 @@ const Header = ({ sticky }) => {
   );
 };
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
 const LogoImg = styled.img`
   max-height: 2rem;
   max-width: 2rem;
@@ -74,9 +95,11 @@ const StickyNav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem 2.5rem;
   z-index: 1;
-  width: 95vw;
+  width: 93%;
   background-color: black;
   box-shadow: none;
+
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 4s linear;
 
   &.header-sticky {
     position: fixed;

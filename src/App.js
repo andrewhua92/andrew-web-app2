@@ -10,7 +10,7 @@ import ScrollToTop from './hooks/ScrollToTop';
 
 import { createGlobalStyle } from 'styled-components';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -39,7 +39,7 @@ const App = () => {
   const { isSticky, element } = useSticky();
 
   return (
-    <Router>
+    <Router >
       <GlobalStyle />
       <CSSTransition
         in={atIntro}
@@ -53,7 +53,7 @@ const App = () => {
       </CSSTransition>
       {!atIntro && (
         <>
-          <Header sticky={isSticky} />
+          <Header sticky={isSticky} atIntro={atIntro} />
           <Switch>
             <Route path="/projects">
               <ScrollToTop />
