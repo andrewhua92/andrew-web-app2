@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [atIntro, setAtIntro] = useState(window.location.pathname === '/');
+  const [atIntro, setAtIntro] = useState(window.location.has === '#/');
   const { isSticky, element } = useSticky();
 
   return (
