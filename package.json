@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -b main",
     "clean": "gh-pages-clean"
   },
   "keywords": [],
