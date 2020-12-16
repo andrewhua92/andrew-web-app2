@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
+import { device } from './Breakpoints';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -8,7 +9,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+
+import { useMediaQuery } from 'react-responsive';
 
 import CPPLogo from './assets/CPP-logo.png';
 import PythonLogo from './assets/python-logo.png';
@@ -62,9 +64,12 @@ const Projects = [
 ];
 
 const ProjectsOverview = () => {
+
+  const isNotMobile = useMediaQuery({query: `${device.tablet}`});
+
   return (
     <ProjectsContentDiv>
-      <CustomGrid cellHeight={300} spacing={30} cols={3}>
+      <CustomGrid cellHeight={isNotMobile ? 300 : 250} spacing={30} cols={isNotMobile ? 3 : 2}>
         {Projects.map(({ title, description, link, languageLogo }) => (
           <CustomGridTile>
             <ProjectCard>
@@ -104,6 +109,10 @@ const CardButton = styled(Button)`
   && {
     color: #3f51b5;
 
+    @media ${device.desktop} {
+      font-size: 1.3rem;
+    }
+
     &&:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
@@ -130,10 +139,14 @@ const Heading = styled.h1`
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   margin-bottom: 1rem;
+
+  @media ${device.desktop} {
+    font-size: 2rem;
+  }
 `;
 
 const SubHeading = styled.h1`
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: 'Noto Sans TC', sans-serif;
   color: white;
   font-weight: normal;
@@ -141,6 +154,16 @@ const SubHeading = styled.h1`
   text-align: left;
   max-width: 13rem;
   align-self: center;
+
+  @media ${device.tablet} {
+    margin-top: 2rem;
+  }
+
+  @media ${device.desktop} {
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    max-width: 15rem;
+  }
 `;
 
 const ProjectsContentDiv = styled.div`

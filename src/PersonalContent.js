@@ -1,14 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from './Breakpoints';
 
 import Avatar from '@material-ui/core/Avatar';
+
+import { useMediaQuery } from 'react-responsive';
 
 import 'fontsource-noto-sans-tc';
 
 const PersonalContent = () => {
+
+  const isNotMobile = useMediaQuery({query: `${device.tablet}`});
+
   return (
     <PersonalContentDiv>
-      <CustomAvatar alt="Andrew Hua" src={require('./assets/my_face.JPG')} />
+      {isNotMobile && <CustomAvatar alt="Andrew Hua" src={require('./assets/my_face.JPG')} />}
       <div>
         <Heading>About Me</Heading>
         <ContentParagraph>
@@ -45,7 +51,15 @@ const ContentParagraph = styled.p`
   font-weight: normal;
   color: white;
   font-size: 1.3rem;
-  max-width: 35vw;
+
+  @media ${device.tablet} {
+    max-width: 35vw;
+  }
+
+  @media ${device.desktop} {
+    font-size: 1.7rem;
+    max-width: 30vw;
+  }
 `;
 
 const PersonalContentDiv = styled.div`

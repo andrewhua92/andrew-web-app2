@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { device } from './Breakpoints';
 
 import Container from '@material-ui/core/Container';
 import ProjectsContent from './ProjectsContent';
@@ -7,7 +8,7 @@ import ProjectsOverview from './ProjectsOverview';
 
 const Projects = ({ atIntro, element }) => {
   return (
-    <HomeContainer out={atIntro} maxWidth="md">
+    <HomeContainer out={atIntro} >
       <ProjectsContent element={element} />
       <ProjectsOverview />
     </HomeContainer>
@@ -38,6 +39,14 @@ const HomeContainer = styled(Container)`
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
   background-color: black;
+
+  && {
+    max-width: 960px;
+
+    @media ${device.desktop} {
+      max-width: 1280px;
+    }
+  }
 `;
 
 export default Projects;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from './Breakpoints';
 
 import BabelLogo from './assets/Babel-logo.png';
 import ReactLogo from './assets/React-logo.png';
@@ -10,6 +11,8 @@ import WebpackLogo from './assets/webpack-logo.png';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+
+import { useMediaQuery } from 'react-responsive';
 
 import 'fontsource-noto-sans-tc';
 
@@ -41,6 +44,9 @@ const Logos = [
 ];
 
 const SiteContent = () => {
+
+  const isNotMobile = useMediaQuery({query: `${device.tablet}`});
+
   return (
     <SiteContentDiv>
       <div>
@@ -54,7 +60,7 @@ const SiteContent = () => {
           the future!
         </ContentParagraph>
       </div>
-      <CustomGrid cellHeight={150} spacing={5} cols={2}>
+      <CustomGrid cellHeight={isNotMobile ? 150 : 100} spacing={5} cols={2}>
         {Logos.map((logo) => (
           <CustomGridTile key={logo.img} cols={1}>
             <LogoImg src={logo.img} alt={logo.title} />
@@ -74,8 +80,13 @@ const ContentParagraph = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: normal;
   color: white;
-  font-size: 1.4rem;
-  max-width: 30vw;
+  font-size: 1.2rem;
+  max-width: 50vw;
+
+  @media ${device.tablet} {
+    font-size: 1.4rem;
+    max-width: 30vw;
+  }
 `;
 
 const SiteContentDiv = styled.div`
@@ -88,8 +99,12 @@ const SiteContentDiv = styled.div`
 `;
 
 const CustomGrid = styled(GridList)`
-  height: 85vh;
+  height: 60vh;
   width: 30vw;
+
+  @media ${device.tablet} {
+    height: 85vh;
+  }
 `;
 
 const CustomGridTile = styled(GridListTile)`

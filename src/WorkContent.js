@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { device } from './Breakpoints';
 
 import Button from '@material-ui/core/Button';
 
@@ -56,13 +57,13 @@ const WorkContent = () => {
           My previous co-ops so far have been at:
           <br />
           <br />
-          <TextButton onClick={() => setCompany(0)}>CaROBOT</TextButton>
+          <TextButton variant="outlined" onClick={() => setCompany(0)}>CaROBOT</TextButton>
           <br />
           <br />
-          <TextButton onClick={() => setCompany(1)}>CareGuide</TextButton>
+          <TextButton variant="outlined" onClick={() => setCompany(1)}>CareGuide</TextButton>
           <br />
           <br />
-          <TextButton onClick={() => setCompany(2)}>XE.com</TextButton>
+          <TextButton variant="outlined" onClick={() => setCompany(2)}>XE.com</TextButton>
         </ContentParagraph>
       </ContentDiv>
       <div style={{ maxWidth: '25vw' }}>
@@ -90,8 +91,12 @@ const TextButton = styled(Button)`
   && {
     color: white;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     text-transform: none;
+
+    @media ${device.tablet} {
+      font-size: 2.2rem;
+    }
 
     &&:hover {
       background-color: rgba(255, 255, 255, 0.1);
@@ -103,14 +108,24 @@ const Heading = styled.h1`
   color: white;
   font-family: 'Noto Sans TC', sans-serif;
   max-width: 20vw;
+  font-size: 1.5rem;
+
+  @media ${device.tablet} {
+    font-size: 2rem;
+  }
 `;
 
 const ContentParagraph = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: normal;
   color: white;
-  font-size: 1.4rem;
-  max-width: 20vw;
+  font-size: 1.2rem;
+  max-width: 40vw;
+
+  @media ${device.tablet} {
+    max-width: 20vw;
+    font-size: 1.4rem;
+  }
 `;
 
 const WorkContentDiv = styled.div`
@@ -118,17 +133,26 @@ const WorkContentDiv = styled.div`
   background-color: black;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
+  @media ${device.tablet} {
+    justify-content: space-between;
+  }
 `;
 
 const SlideDiv = styled(animated.div)`
   height: 100vh;
-  width: 30vw;
+  width: 35vw;
   background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   will-change: opacity;
+
+  @media ${device.desktop} {
+    width: 30vw;
+    align-items:center;
+  }
 `;
 
 const ContentDiv = styled.div`
@@ -138,8 +162,13 @@ const ContentDiv = styled.div`
 `;
 
 const LogoImg = styled.img`
-  max-width: 10rem;
-  max-height: 15rem;
+  max-width: 5rem;
+  max-height: 10rem;
+
+  @media ${device.tablet} {
+    max-width: 10rem;
+    max-height: 15rem;
+  }
 `;
 
 export default WorkContent;

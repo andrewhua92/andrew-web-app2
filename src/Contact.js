@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { device } from './Breakpoints';
 
 import Container from '@material-ui/core/Container';
 import ContactContent from './ContactContent';
@@ -7,7 +8,7 @@ import ContactOverview from './ContactOverview';
 
 const Contact = ({ atIntro, element }) => {
   return (
-    <ContactContainer maxWidth="md" out={atIntro}>
+    <ContactContainer out={atIntro}>
       <ContactContent element={element} />
       <ContactOverview />
     </ContactContainer>
@@ -38,6 +39,14 @@ const ContactContainer = styled(Container)`
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
   background-color: black;
+
+  && {
+    max-width: 960px;
+
+    @media ${device.desktop} {
+      max-width: 1280px;
+    }
+  }
 `;
 
 export default Contact;

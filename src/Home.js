@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { device } from './Breakpoints';
 
 import Container from '@material-ui/core/Container';
 
-// import Paper from '@material-ui/core/Paper';
 
 import HomeContent from './HomeContent';
 import PersonalContent from './PersonalContent';
@@ -20,7 +20,7 @@ import SiteContent from './SiteContent';
 
 const Home = ({ atIntro, element }) => {
   return (
-    <HomeContainer out={atIntro} maxWidth="md">
+    <HomeContainer out={atIntro}>
       <HomeContent element={element} atIntro={atIntro} />
       <PersonalContent />
       <WorkContent />
@@ -53,6 +53,14 @@ const HomeContainer = styled(Container)`
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
   background-color: black;
+
+  && {
+    max-width: 960px;
+
+    @media ${device.desktop} {
+      max-width: 1280px;
+    }
+  }
 `;
 
 export default Home;

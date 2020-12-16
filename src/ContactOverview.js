@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device  } from './Breakpoints';
+
+import { useMediaQuery } from 'react-responsive';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,82 +16,130 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Fireplace from './assets/fireplace.gif';
 
 const ContactOverview = () => {
+
+  const isNotMobile = useMediaQuery({query: `${device.tablet}`});
+
   return (
     <ContactContentDiv>
+      {isNotMobile && 
       <FireplaceDiv>
         <ContentParagraph>
           Thanks for taking the time to reach this section. Have a seat by the
           fire.
         </ContentParagraph>
         <GifDiv />
-      </FireplaceDiv>
+      </FireplaceDiv>}
       <ListDiv>
         <ContactList>
-          <ListItem>
-            <ListItemIcon>
+          <ContactListItem>
+            <ContactListItemIcon>
               <EmailIcon style={{ color: 'white' }} />
-            </ListItemIcon>
-            <ListItemText
+            </ContactListItemIcon>
+            <ContactListItemText
               primary="Personal Email"
               secondary="andrewhua90@gmail.com"
-              primaryTypographyProps={{ style: { color: 'white' } }}
-              secondaryTypographyProps={{ style: { color: 'white' } }}
             />
-          </ListItem>
+          </ContactListItem>
           <ContactDivider />
-          <ListItem>
-            <ListItemIcon>
+          <ContactListItem>
+            <ContactListItemIcon>
               <EmailIcon style={{ color: 'white' }} />
-            </ListItemIcon>
-            <ListItemText
+            </ContactListItemIcon>
+            <ContactListItemText
               primary="School Email"
               secondary="a5hua@uwaterloo.ca"
-              primaryTypographyProps={{ style: { color: 'white' } }}
-              secondaryTypographyProps={{ style: { color: 'white' } }}
             />
-          </ListItem>
+          </ContactListItem>
           <ContactDivider />
-          <ListItem
+          <ContactListItem
             button
             component="a"
             href="https://github.com/andrewhua92"
             target="_blank"
           >
-            <ListItemIcon>
+            <ContactListItemIcon>
               <GitHubIcon style={{ color: 'white' }} />
-            </ListItemIcon>
-            <ListItemText
+            </ContactListItemIcon>
+            <ContactListItemText
               primary="GitHub"
               secondary="github.com/andrewhua92"
-              primaryTypographyProps={{ style: { color: 'white' } }}
-              secondaryTypographyProps={{ style: { color: 'white' } }}
             />
-          </ListItem>
+          </ContactListItem>
           <ContactDivider />
-          <ListItem
+          <ContactListItem
             button
             component="a"
             href="https://www.linkedin.com/in/andrew-hua90"
             target="_blank"
           >
-            <ListItemIcon>
+            <ContactListItemIcon>
               <LinkedInIcon style={{ color: 'white' }} />
-            </ListItemIcon>
-            <ListItemText
+            </ContactListItemIcon>
+            <ContactListItemText
               primary="LinkedIn"
               secondary="linkedin.com/in/andrew-hua90/"
-              primaryTypographyProps={{ style: { color: 'white' } }}
-              secondaryTypographyProps={{ style: { color: 'white' } }}
             />
-          </ListItem>
+          </ContactListItem>
         </ContactList>
       </ListDiv>
     </ContactContentDiv>
   );
 };
 
+const ContactListItemIcon = styled(ListItemIcon)`
+
+  && :only-child {
+    @media ${device.desktop} {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  @media ${device.desktop} {
+    height: 4rem;
+    width: 4rem;
+  }
+`;
+
+const ContactListItem = styled(ListItem)`
+
+  @media ${device.desktop} {
+    height: 10rem;
+  }
+`;
+
+const ContactListItemText = styled(ListItemText)`
+  
+  .MuiListItemText-primary {
+    color: white;
+
+    font-size: 1.5rem;
+
+    @media ${device.tablet} {
+      font-size: 1rem;
+    }
+
+    @media ${device.desktop} {
+      font-size: 2rem;
+    }
+  }
+
+  .MuiListItemText-secondary {
+    color: white;
+
+    font-size: 1rem;
+
+    @media ${device.tablet} {
+      font-size: 0.875rem;
+    }
+
+    @media ${device.desktop} {
+      font-size: 1.8rem;
+    }
+  }
+`;
+
 const ContactList = styled(List)`
-  width: 25vw;
 `;
 
 const ContactDivider = styled(Divider)`
@@ -113,6 +164,10 @@ const ContentParagraph = styled.p`
   font-size: 1.3rem;
   max-width: 25vw;
   align-self: center;
+
+  @media ${device.desktop} {
+    font-size: 1.7rem;
+  }
 `;
 
 const GifDiv = styled.div`
@@ -121,9 +176,23 @@ const GifDiv = styled.div`
   background-repeat: no-repeat;
   width: 30vw;
   height: 30vw;
+
+  @media ${device.desktop} {
+    background-size: 50rem;
+  }
 `;
 
-const ListDiv = styled.div``;
+const ListDiv = styled.div`
+  height: 30vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.tablet} {
+    width: 30vw;
+  }
+`;
 
 const ContactContentDiv = styled.div`
   height: 100vh;

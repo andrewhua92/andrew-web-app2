@@ -1,12 +1,20 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
+import { device } from './Breakpoints';
+
 import Galaxy from './assets/galaxy_thing.gif';
 import Button from '@material-ui/core/Button';
+
+import { useMediaQuery } from 'react-responsive';
+
 import 'fontsource-ubuntu';
 import 'fontsource-noto-sans-tc';
 
 const Background = ({ atIntro, setAtIntro }) => {
+
+  const isNotMobile = useMediaQuery({query: `${device.tablet}`});
+
   return (
     <IntroBackgroundDiv className="target">
       <ContentDiv>
@@ -22,7 +30,7 @@ const Background = ({ atIntro, setAtIntro }) => {
           Let's go!
         </ContentButton>
       </ContentDiv>
-      <GifDiv className="target" />
+      {isNotMobile && <GifDiv className="target" />}
     </IntroBackgroundDiv>
   );
 };
@@ -47,8 +55,11 @@ const ContentDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: black;
-  width: 45vw;
   height: 100%;
+
+  @media ${device.tablet} { 
+    width: 45vw;
+  }
 `;
 
 const GifDiv = styled.div`

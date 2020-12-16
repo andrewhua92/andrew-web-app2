@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { device } from './Breakpoints';
 
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -77,6 +78,11 @@ const fadeOut = keyframes`
 const LogoImg = styled.img`
   max-height: 2rem;
   max-width: 2rem;
+
+  @media ${device.desktop} {
+    max-height: 4rem;
+    max-width: 4rem;
+  }
 `;
 
 const moveDown = keyframes`
@@ -95,11 +101,17 @@ const StickyNav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem 2.5rem;
   z-index: 1;
-  width: 93%;
+  width: 90%;
   background-color: black;
   box-shadow: none;
 
+
+  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 4s linear;
+
+  @media ${device.tablet} {
+    width: 93%;
+  }
 
   &.header-sticky {
     position: fixed;
@@ -107,7 +119,8 @@ const StickyNav = styled.nav`
   }
 `;
 
-const NavTabs = styled(Tabs)``;
+const NavTabs = styled(Tabs)`
+`;
 
 const NavTabsDiv = styled(AppBar)`
   && {
@@ -119,6 +132,10 @@ const LinkTab = styled(Tab)`
   && {
     color: white;
     font-family: 'Noto Sans TC', sans-serif;
+    @media  ${device.desktop} { 
+      font-size: 1.5rem;
+      width: 15vw;
+    }
   }
 `;
 
