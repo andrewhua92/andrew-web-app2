@@ -125,12 +125,17 @@ const ProjectCardActions = styled(CardActions)`
 
 const ProjectCard = styled(Card)`
   && {
-    border-radius: 2rem;
-    background: rgba(10, 10, 10, 0.9);
-    height: 100%;
+    border-radius: 0;
+    border: 1px solid grey;
+    background: rgba(1,1,1,0.5);
+    height: 99%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    &&:hover {
+      background-color: rgba(10,10,10,0.9);
+    }
   }
 `;
 
