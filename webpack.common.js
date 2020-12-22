@@ -12,14 +12,6 @@ module.exports = {
         publicPath: '/andrew-web-app2/',
         filename: 'bundle.js'
     },
-    devServer: {
-        contentBase: path.join(__dirname, 'public/'),
-        port: 9000,
-        publicPath: 'http://localhost:9000/dist',
-        open: true,
-        hotOnly: true,
-        historyApiFallback: true,
-    },
     module: {
         rules: [
             {

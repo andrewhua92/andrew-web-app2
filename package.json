@@ -5,8 +5,8 @@
   "description": "My second stab at making a React web app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open chrome",
-    "build": "webpack --mode development",
+    "start": "webpack serve --open chrome --config webpack.dev.js",
+    "build": "webpack --config webpack.projd.js",
     "format": "prettier --write \"src/**/*.js\"",
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
     "predeploy": "npm run build",
@@ -50,6 +50,7 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.10.0",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.7.3"
   }
 }
