@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open chrome --config webpack.dev.js",
-    "build": "webpack --config webpack.projd.js",
+    "build": "webpack --config webpack.prod.js",
     "format": "prettier --write \"src/**/*.js\"",
     "eslint-fix": "eslint --fix \"src/**/*.js\"",
     "predeploy": "npm run build",
