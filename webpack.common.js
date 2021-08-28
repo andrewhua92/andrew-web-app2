@@ -9,7 +9,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist/'),
-        publicPath: '/andrew-web-app2/',
+        publicPath: '/dist/',
         filename: 'bundle.js'
     },
     module: {
@@ -37,6 +37,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(), 
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            favicon: './src/assets/favicon-32x32.png',
+            template: './public/index.html',
           })]
 };

@@ -35,8 +35,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [atIntro, setAtIntro] = useState(window.location.hash === '#/');
+  const [atIntro, setAtIntro] = useState(true);
   const { isSticky, element } = useSticky();
+
+  console.log(atIntro);
+
 
   return (
     <Router >

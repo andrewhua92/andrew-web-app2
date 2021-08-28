@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import CaROBOTLogo from './assets/Carobot-logo.png';
 import CareGuideLogo from './assets/careguide-logo.png';
 import XELogo from './assets/XE-logo.png';
+import StackAdaptLogo from './assets/stackadapt-logo.png';
 
 import { useTransition, animated } from 'react-spring';
 
@@ -37,10 +38,17 @@ const slides = [
     position: 'Full Stack Developer',
     languages: ['React', 'PHP'],
   },
+  {
+    id: 3,
+    img: StackAdaptLogo,
+    title: 'StackAdapt',
+    position: 'Software Engineer',
+    languages: ['React', 'Redux', 'TypeScript', 'Ruby on Rails'],
+  }
 ];
 
 const WorkContent = () => {
-  const [company, setCompany] = useState(0);
+  const [company, setCompany] = useState(3);
 
   const transitions = useTransition(slides[company], (item) => item.id, {
     from: { opacity: 0 }, // I don't know why I have to force position, but it prevents snap entry animation
@@ -54,16 +62,19 @@ const WorkContent = () => {
       <ContentDiv>
         <Heading>My Experiences</Heading>
         <ContentParagraph>
-          My previous co-ops so far have been at:
+          My previous internships have been at (descending in recency):
           <br />
           <br />
-          <TextButton variant="outlined" onClick={() => setCompany(0)}>CaROBOT</TextButton>
+          <TextButton variant='outlined' onClick={() => setCompany(3)}>StackAdapt</TextButton>
           <br />
           <br />
-          <TextButton variant="outlined" onClick={() => setCompany(1)}>CareGuide</TextButton>
+          <TextButton variant='outlined' onClick={() => setCompany(2)}>XE.com</TextButton>
           <br />
           <br />
-          <TextButton variant="outlined" onClick={() => setCompany(2)}>XE.com</TextButton>
+          <TextButton variant='outlined' onClick={() => setCompany(1)}>CareGuide</TextButton>
+          <br />
+          <br />
+          <TextButton variant='outlined' onClick={() => setCompany(0)}>CaROBOT</TextButton>
         </ContentParagraph>
       </ContentDiv>
       <div style={{ maxWidth: '25vw' }}>
@@ -72,7 +83,7 @@ const WorkContent = () => {
             <LogoImg src={item.img} />
             <Heading>Role</Heading>
             <ContentParagraph>{item.position}</ContentParagraph>
-            <Heading>Languages</Heading>
+            <Heading>Tech Stack</Heading>
             <ContentParagraph>
               {item.languages.map((language, key) => (
                 <span key={key}>
@@ -93,6 +104,9 @@ const TextButton = styled(Button)`
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 1.5rem;
     text-transform: none;
+    background-color: rgba(255,255,255,0.05);
+    border-color:white;
+    border-width: 1px;
 
     @media ${device.tablet} {
       font-size: 2.2rem;

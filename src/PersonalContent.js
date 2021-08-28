@@ -18,7 +18,7 @@ const PersonalContent = () => {
       <div>
         <Heading>About Me</Heading>
         <ContentParagraph>
-          My name is Andrew Hua, a 3A Computer Engineering student at the
+          My name is Andrew Hua, a 3B Computer Engineering student at the
           University of Waterloo. I enjoy gaming just like any other guy,
           obsessing over sneakers, learning, coding, and I'm always looking for
           opportunites to grow. While my major is Computer Engineering, I take a
