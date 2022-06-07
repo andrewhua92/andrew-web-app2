@@ -107,7 +107,7 @@ const StickyNav = styled.nav`
 
 
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 4s linear;
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
 
   @media ${device.tablet} {
     width: 93%;

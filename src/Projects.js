@@ -37,7 +37,7 @@ const fadeOut = keyframes`
 
 const HomeContainer = styled(Container)`
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 0.5s linear;
   background-color: black;
 
   && {

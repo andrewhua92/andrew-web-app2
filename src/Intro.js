@@ -96,7 +96,7 @@ const IntroBackgroundDiv = styled.div`
 
   &&.target-exit-active {
     opacity: 0;
-    transition: opacity 1000ms;
+    transition: opacity 500ms;
   }
 `;
 

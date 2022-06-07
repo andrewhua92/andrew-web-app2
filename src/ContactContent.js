@@ -51,7 +51,7 @@ const ContactContentDiv = styled.div`
   justify-content: center;
 
   visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 2s linear;
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 1s linear;
 `;
 
 export default ContactContent;

@@ -38,15 +38,12 @@ const App = () => {
   const [atIntro, setAtIntro] = useState(true);
   const { isSticky, element } = useSticky();
 
-  console.log(atIntro);
-
-
   return (
     <Router >
       <GlobalStyle />
       <CSSTransition
         in={atIntro}
-        timeout={{ appear: 500, enter: 500, exit: 1000 }}
+        timeout={{ appear: 250, enter: 250, exit: 500 }}
         classNames="target"
         mountOnEnter
         unmountOnExit
